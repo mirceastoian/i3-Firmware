@@ -81,7 +81,7 @@
 #endif
 #if HOTENDS == 1
   #ifndef FAN1_PIN
-    #define FAN1_PIN                       P2_04
+    #define FAN1_PIN                       P2_03 // MS 11.04.2021
   #endif
 #else
   #ifndef HEATER_1_PIN
@@ -89,7 +89,7 @@
   #endif
 #endif
 #ifndef FAN_PIN
-  #define FAN_PIN                          P2_03
+  #define FAN_PIN                          P2_04 // MS 11.04.2021
 #endif
 #ifndef HEATER_BED_PIN
   #define HEATER_BED_PIN                   P2_05
