@@ -536,7 +536,7 @@
  * heater. If your configuration is significantly different than this and you don't understand
  * the issues involved, don't use bed PID until someone else verifies that your hardware works.
  */
-// #define PIDTEMPBED // MS 11.04.2021 disabled due to bed heating issues
+#define PIDTEMPBED // MS 16.05.2021 enabled due to z banding
 
 //#define BED_LIMIT_SWITCHING
 
@@ -558,9 +558,9 @@
   // #define DEFAULT_bedKi .023
   // #define DEFAULT_bedKd 305.4
 
-  #define DEFAULT_bedKp 12.99   // 06.04.2021
-  #define DEFAULT_bedKi 0.30    // 06.04.2021
-  #define DEFAULT_bedKd 376.57  // 06.04.2021
+  #define DEFAULT_bedKp 25.46 // MS 16.05.2021
+  #define DEFAULT_bedKi 0.73 // MS 16.05.2021
+  #define DEFAULT_bedKd 593.41 // MS 16.05.2021
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -655,8 +655,8 @@
 
 #define THERMAL_PROTECTION_HOTENDS // Enable thermal protection for all extruders
 #define THERMAL_PROTECTION_BED     // Enable thermal protection for the heated bed
-#define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber
-#define THERMAL_PROTECTION_COOLER  // Enable thermal protection for the laser cooling
+//#define THERMAL_PROTECTION_CHAMBER // Enable thermal protection for the heated chamber // MS 16.05.2021
+//#define THERMAL_PROTECTION_COOLER  // Enable thermal protection for the laser cooling // MS 16.05.2021
 
 //===========================================================================
 //============================= Mechanical Settings =========================
@@ -841,9 +841,9 @@
  *   M204 R    Retract Acceleration
  *   M204 T    Travel Acceleration
  */
-#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E acceleration for printing moves
-#define DEFAULT_RETRACT_ACCELERATION  3000    // E acceleration for retracts
-#define DEFAULT_TRAVEL_ACCELERATION   3000    // X, Y, Z acceleration for travel (non printing) moves
+#define DEFAULT_ACCELERATION          700    // X, Y, Z and E acceleration for printing moves // MS 16.05.2021
+#define DEFAULT_RETRACT_ACCELERATION  700    // E acceleration for retracts  // MS 16.05.2021
+#define DEFAULT_TRAVEL_ACCELERATION   700    // X, Y, Z acceleration for travel (non printing) moves // MS 16.05.2021
 
 /**
  * Default Jerk limits (mm/s)
@@ -853,11 +853,11 @@
  * When changing speed and direction, if the difference is less than the
  * value set here, it may happen instantaneously.
  */
-//#define CLASSIC_JERK
+#define CLASSIC_JERK  // MS 16.05.2021
 #if ENABLED(CLASSIC_JERK)
-  #define DEFAULT_XJERK 10.0
-  #define DEFAULT_YJERK 10.0
-  #define DEFAULT_ZJERK  0.3
+  #define DEFAULT_XJERK 7.0 // MS 16.05.2021
+  #define DEFAULT_YJERK 7.0 // MS 16.05.2021
+  #define DEFAULT_ZJERK 0.3
 
   //#define TRAVEL_EXTRA_XYJERK 0.0     // Additional jerk allowance for all travel moves
 
@@ -1056,7 +1056,7 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -3, -40, -2.3 } // MS 19.04.2021
+#define NOZZLE_TO_PROBE_OFFSET { -3, -40, -2.2 } // MS 16.05.2021
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
@@ -1233,8 +1233,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 220 // MS 09.04.2021
-#define Y_BED_SIZE 190 // MS 18.04.2021
+#define X_BED_SIZE 235 // MS 16.05.2021
+#define Y_BED_SIZE 210 // MS 16.05.2021
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
