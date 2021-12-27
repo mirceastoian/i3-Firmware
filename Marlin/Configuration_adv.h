@@ -249,14 +249,14 @@
  * Thermal Protection parameters for the bed are just as above for hotends.
  */
 #if ENABLED(THERMAL_PROTECTION_BED)
-  #define THERMAL_PROTECTION_BED_PERIOD        40 // Seconds // MS 16.05.2021 - increased due to thermal runaway SKR 1.4 turbo
-  #define THERMAL_PROTECTION_BED_HYSTERESIS     2 // Degrees Celsius
+  #define THERMAL_PROTECTION_BED_PERIOD        80 // Seconds // MS 27.12.2021 - increased due to thermal runaway SKR 1.4 turbo
+  #define THERMAL_PROTECTION_BED_HYSTERESIS     4 // Degrees Celsius // MS 27.12.2021
 
   /**
    * As described above, except for the bed (M140/M190/M303).
    */
   #define WATCH_BED_TEMP_PERIOD                120 // Seconds // MS 16.05.2021 - increased due to thermal runaway SKR 1.4 turbo
-  #define WATCH_BED_TEMP_INCREASE               2 // Degrees Celsius
+  #define WATCH_BED_TEMP_INCREASE               4 // Degrees Celsius // MS 27.12.2021
 #endif
 
 /**
@@ -2483,7 +2483,7 @@
   #endif
 
   #if AXIS_IS_TMC(E0)
-    #define E0_CURRENT      600 // MS 22.04.2021 - prevent stepper motor overheating (pancake model) 
+    #define E0_CURRENT      800 // MS 27.12.2021 - recommended for BIGU H2
     #define E0_MICROSTEPS    16
     #define E0_RSENSE         0.11
     #define E0_CHAIN_POS     -1

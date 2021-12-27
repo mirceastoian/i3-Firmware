@@ -69,7 +69,7 @@
 // @section info
 
 // Author info of this build printed to the host during boot and M115
-#define STRING_CONFIG_H_AUTHOR "(MS 28.03.2021)" // Who made the changes.
+#define STRING_CONFIG_H_AUTHOR "(MS 27.12.2021)" // Who made the changes. // MS 27.12.2021
 //#define CUSTOM_VERSION_FILE Version.h // Path from the root directory (no quotes)
 
 /**
@@ -510,9 +510,9 @@
     #define DEFAULT_Ki_LIST {   1.08,   1.08 }
     #define DEFAULT_Kd_LIST { 114.00, 114.00 }
   #else
-    #define DEFAULT_Kp 27.50 // 18.04.2021
-    #define DEFAULT_Ki 2.84  // 18.04.2021
-    #define DEFAULT_Kd 66.65 // 18.04.2021
+    #define DEFAULT_Kp 10.89 // 27.12.2021 - BIQU H2 24v (M303 E0 C8 S210)
+    #define DEFAULT_Ki 0.63  // 27.12.2021
+    #define DEFAULT_Kd 46.71 // 27.12.2021
     // #define DEFAULT_Kp  22.20 
     // #define DEFAULT_Ki   1.08
     // #define DEFAULT_Kd 114.00
@@ -806,7 +806,7 @@
  * Override with M92
  *                                      X, Y, Z, E0 [, E1[, E2...]]
  */
-#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 405.6, 436.5 } // MS 19.04.2021 TODO: axis calibration (cube test)
+#define DEFAULT_AXIS_STEPS_PER_UNIT   { 80, 80, 405.6, 950 } // MS 27.12.2021 TODO: axis calibration (cube test)
 
 /**
  * Default Max Feed Rate (mm/s)
@@ -1056,11 +1056,11 @@
  *     |    [-]    |
  *     O-- FRONT --+
  */
-#define NOZZLE_TO_PROBE_OFFSET { -3, -40, -2.2 } // MS 16.05.2021
+#define NOZZLE_TO_PROBE_OFFSET { -33, 4, -2.9 } // MS 27.12.2021
 
 // Most probes should stay away from the edges of the bed, but
 // with NOZZLE_AS_PROBE this can be negative for a wider probing area.
-#define PROBING_MARGIN 10
+#define PROBING_MARGIN 5 // MS 27.12.2021
 
 // X and Y axis travel speed (mm/min) between probes
 #define XY_PROBE_FEEDRATE (133*60)
@@ -1233,8 +1233,8 @@
 // @section machine
 
 // The size of the print bed
-#define X_BED_SIZE 235 // MS 16.05.2021
-#define Y_BED_SIZE 210 // MS 16.05.2021
+#define X_BED_SIZE 225 // MS 27.12.2021
+#define Y_BED_SIZE 200 // MS 16.05.2021
 
 // Travel limits (mm) after homing, corresponding to endstop positions.
 #define X_MIN_POS 0
@@ -1242,7 +1242,7 @@
 #define Z_MIN_POS 0
 #define X_MAX_POS X_BED_SIZE
 #define Y_MAX_POS Y_BED_SIZE
-#define Z_MAX_POS 280 // MS 29.03.2021
+#define Z_MAX_POS 260 // MS 27.12.2021
 
 /**
  * Software Endstops
@@ -1406,8 +1406,8 @@
 #define PREHEAT_BEFORE_LEVELING // MS 29.03.2021
 #define PREHEAT_BEFORE_LEVELING // MS 29.03.2021
 #if ENABLED(PREHEAT_BEFORE_LEVELING)
-  #define LEVELING_NOZZLE_TEMP 120   // (°C) Only applies to E0 at this time
-  #define LEVELING_BED_TEMP     50
+  #define LEVELING_NOZZLE_TEMP 180   // (°C) Only applies to E0 at this time // MS 27.12.2021
+  #define LEVELING_BED_TEMP     60   // MS 27.12.2021
 #endif
 
 /**
@@ -1704,13 +1704,13 @@
 #define PREHEAT_1_TEMP_HOTEND 180
 #define PREHEAT_1_TEMP_BED     60 // MS 29.03.2021
 #define PREHEAT_1_TEMP_CHAMBER 35
-#define PREHEAT_1_FAN_SPEED   128 // Value from 0 to 255  // MS 11.04.2021
+#define PREHEAT_1_FAN_SPEED     0 // Value from 0 to 255  // MS 27.12.2021
 
 #define PREHEAT_2_LABEL       "ABS"
 #define PREHEAT_2_TEMP_HOTEND 240
 #define PREHEAT_2_TEMP_BED    110
 #define PREHEAT_2_TEMP_CHAMBER 35
-#define PREHEAT_2_FAN_SPEED   128 // Value from 0 to 255  // MS 11.04.2021
+#define PREHEAT_2_FAN_SPEED     0 // Value from 0 to 255  // MS 27.12.2021
 
 /**
  * Nozzle Park
